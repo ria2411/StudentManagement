@@ -1,9 +1,9 @@
-package raisetech.StudentManagement;
+package raisetech.StudentManagement.data;
 
 import lombok.Data;
 
 @Data
-public class StudentCourses {
+public class Student {
 
   private Long Id;
   private Long studentId;
