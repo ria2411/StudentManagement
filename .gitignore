@@ -6,3 +6,20 @@ HELP.md
 kadai7.txt
 kadai4.txt
 build
+.DS_Store
+
+# Gradle関連のキャッシュ・一時ファイル
+.gradle/
+
+# IntelliJ IDEAの設定ファイル
+.idea/
+
+# ビルド成果物
+/build/
+out/
+
+# 環境設定ファイル
+src/main/resources/application.properties
+
+# OSの不要なファイル
+Thumbs.db
