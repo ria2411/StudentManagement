@@ -7,4 +7,4 @@ kadai4.txt
 src/main/resources/application.properties
 Thumbs.db
 .gradle
-.idea
+.ideabuild/
