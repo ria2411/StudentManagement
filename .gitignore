@@ -8,3 +8,5 @@ src/main/resources/application.properties
 Thumbs.db
 .gradle
 build.idea/
+.idea/
+build/
