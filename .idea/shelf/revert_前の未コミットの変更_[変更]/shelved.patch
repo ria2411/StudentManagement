@@ -1,0 +1,101 @@
+Index: src/main/java/raisetech/StudentManagement/StudentCourses.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package raisetech.StudentManagement;\n\nimport lombok.Data;\n\n@Data\npublic class StudentCourses {\n\n  private Long Id;\n  private Long studentId;\n  private String courseName;\n  private String startDate;\n  private String endDate;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/raisetech/StudentManagement/StudentCourses.java b/src/main/java/raisetech/StudentManagement/StudentCourses.java
+--- a/src/main/java/raisetech/StudentManagement/StudentCourses.java	(revision b561a5168dec6036ff614ec1f130d0d12bebf86c)
++++ b/src/main/java/raisetech/StudentManagement/StudentCourses.java	(date 1741668177553)
+@@ -1,12 +1,14 @@
+ package raisetech.StudentManagement;
+ 
+-import lombok.Data;
++import lombok.Getter;
++import lombok.Setter;
+ 
+-@Data
++@Getter
++@Setter
+ public class StudentCourses {
+ 
+-  private Long Id;
+-  private Long studentId;
++  private String Id;
++  private String studentId;
+   private String courseName;
+   private String startDate;
+   private String endDate;
+Index: src/main/java/raisetech/StudentManagement/StudentRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package raisetech.StudentManagement;\n\nimport java.util.List;\nimport org.apache.ibatis.annotations.Mapper;\nimport org.apache.ibatis.annotations.Select;\n\n@Mapper\npublic interface StudentRepository {\n\n  @Select(\"SELECT * FROM student_courses\")\n  List<StudentCourses> search();\n\n  @Select(\"SELECT * FROM student_courses\")\n  List<StudentCourses> findAllCourses();\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/raisetech/StudentManagement/StudentRepository.java b/src/main/java/raisetech/StudentManagement/StudentRepository.java
+--- a/src/main/java/raisetech/StudentManagement/StudentRepository.java	(revision b561a5168dec6036ff614ec1f130d0d12bebf86c)
++++ b/src/main/java/raisetech/StudentManagement/StudentRepository.java	(date 1741668177555)
+@@ -9,8 +9,4 @@
+ 
+   @Select("SELECT * FROM student_courses")
+   List<StudentCourses> search();
+-
+-  @Select("SELECT * FROM student_courses")
+-  List<StudentCourses> findAllCourses();
+-
+ }
+\ No newline at end of file
+Index: src/main/java/raisetech/StudentManagement/StudentManagementApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package raisetech.StudentManagement;\n\nimport java.util.List;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n\n@SpringBootApplication\n@RestController\npublic class StudentManagementApplication {\n\n\t@Autowired\n\tprivate StudentService studentService;\n\n\tpublic static void main(String[] args) {\n\t\tSpringApplication.run(StudentManagementApplication.class, args);\n\t}\n\n\t@GetMapping(\"/StudentCoursesList\")\n\tpublic List<StudentCourses> getStudentCoursesList() {\n\t\treturn studentService.getAllCourses();\n \t}\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/raisetech/StudentManagement/StudentManagementApplication.java b/src/main/java/raisetech/StudentManagement/StudentManagementApplication.java
+--- a/src/main/java/raisetech/StudentManagement/StudentManagementApplication.java	(revision b561a5168dec6036ff614ec1f130d0d12bebf86c)
++++ b/src/main/java/raisetech/StudentManagement/StudentManagementApplication.java	(date 1741668177557)
+@@ -13,7 +13,7 @@
+ public class StudentManagementApplication {
+ 
+ 	@Autowired
+-	private StudentService studentService;
++	private StudentRepository repository;
+ 
+ 	public static void main(String[] args) {
+ 		SpringApplication.run(StudentManagementApplication.class, args);
+@@ -21,6 +21,6 @@
+ 
+ 	@GetMapping("/StudentCoursesList")
+ 	public List<StudentCourses> getStudentCoursesList() {
+-		return studentService.getAllCourses();
++		return repository.search();
+  	}
+ }
+\ No newline at end of file
+Index: src/main/java/raisetech/StudentManagement/StudentService.java
+===================================================================
+diff --git a/src/main/java/raisetech/StudentManagement/StudentService.java b/src/main/java/raisetech/StudentManagement/StudentService.java
+deleted file mode 100644
+--- a/src/main/java/raisetech/StudentManagement/StudentService.java	(revision b561a5168dec6036ff614ec1f130d0d12bebf86c)
++++ /dev/null	(revision b561a5168dec6036ff614ec1f130d0d12bebf86c)
+@@ -1,17 +0,0 @@
+-package raisetech.StudentManagement;
+-
+-import java.util.List;
+-import org.springframework.stereotype.Service;
+-
+-@Service
+-public class StudentService {
+-  private final StudentRepository repository;
+-
+-  public StudentService(StudentRepository repository) {
+-    this.repository = repository;
+-  }
+-
+-  public List<StudentCourses> getAllCourses() {
+-    return repository.findAllCourses();
+-  }
+-}

@@ -25,7 +25,10 @@ repositories {
 }
 
 dependencies {
+	//spring boot
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//Thymeleaf
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	//便利機能、ユーティリティ
 	implementation 'org.apache.commons:commons-lang3:3.17.0'
 
@@ -35,8 +38,6 @@ dependencies {
 
 	//MySQLドライバ
 	runtimeOnly 'com.mysql:mysql-connector-j'
-
-
 
 	//Mybatis
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
