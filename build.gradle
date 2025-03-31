@@ -29,9 +29,15 @@ dependencies {
 	//便利機能、ユーティリティ
 	implementation 'org.apache.commons:commons-lang3:3.17.0'
 
+<<<<<<< HEAD
+	//Lombok
+	compileOnly'org.projectlombok:lombok:1.18.36'
+	annotationProcessor'org.projectlombok:lombok:1.18.36'
+=======
 	//lombok
 	compileOnly 'org.projectlombok:lombok:1.18.36'
 	annotationProcessor 'org.projectlombok:lombok:1.18.36'
+>>>>>>> origin/kadai11
 
 	//MySQLドライバ
 	runtimeOnly 'com.mysql:mysql-connector-j'
