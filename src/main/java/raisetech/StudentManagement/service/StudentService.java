@@ -1,15 +1,12 @@
 package raisetech.StudentManagement.service;
 
 import java.util.List;
-<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-=======
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import raisetech.StudentManagement.data.Student;
->>>>>>> origin/kadai11
 import raisetech.StudentManagement.data.StudentCourses;
 import raisetech.StudentManagement.repository.StudentRepository;
 
@@ -27,11 +24,10 @@ public class StudentService {
     return repository.search();
   }
 
-<<<<<<< HEAD
   public List<StudentCourses> searchStudentCoueseList() {
     return repository.searchStudentCourses();
   }
-=======
+
   public List<StudentCourses> searchStudentCoursesList() {
     return repository.searchStudentCourses();
   }
@@ -47,5 +43,4 @@ public class StudentService {
         .filter(course -> "Javaコース".equals(course.getCourseName()))
         .collect(Collectors.toList());
   }
->>>>>>> origin/kadai11
 }

@@ -1,13 +1,12 @@
 README.md
 test.txt
 HELP.md
-.gradle
-.idea
 kadai7.txt
 kadai4.txt
 .DS_Store
-.gradle/
-.idea/
 src/main/resources/application.properties
 Thumbs.db
+.gradle
+build.idea/
+.idea/
 build/
