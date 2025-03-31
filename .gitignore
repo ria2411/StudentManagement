@@ -5,4 +5,9 @@ HELP.md
 .idea
 kadai7.txt
 kadai4.txt
-build
+.DS_Store
+.gradle/
+.idea/
+src/main/resources/application.properties
+Thumbs.db
+build/
