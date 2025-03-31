@@ -5,6 +5,9 @@ HELP.md
 .idea
 kadai7.txt
 kadai4.txt
-build
-# OS-generated files
 .DS_Store
+.gradle/
+.idea/
+src/main/resources/application.properties
+Thumbs.db
+build/

@@ -1,26 +1,28 @@
 package raisetech.StudentManagement;
 
+<<<<<<< HEAD
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import raisetech.StudentManagement.data.StudentCourses;
+import raisetech.StudentManagement.data.StudentService;
 
+=======
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+>>>>>>> origin/kadai11
 
 @SpringBootApplication
-@RestController
 public class StudentManagementApplication {
-
-	@Autowired
-	private StudentService studentService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(StudentManagementApplication.class, args);
 	}
-
-	@GetMapping("/StudentCoursesList")
-	public List<StudentCourses> getStudentCoursesList() {
-		return studentService.getAllCourses();
- 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/kadai11
