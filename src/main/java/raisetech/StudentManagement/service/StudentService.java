@@ -26,6 +26,11 @@ public class StudentService {
     return repository.searchStudentCourses();
   }
 
+  // リポジトリを呼び出して新規登録するメソッド
+  public void registerStudent(Student student) {
+    repository.insertStudent(student);
+  }
+
   public List<Student> searchStudentsInTheir30s() {
     return repository.search().stream()
         .filter(student -> student.getAge() >= 30 && student.getAge() < 40)

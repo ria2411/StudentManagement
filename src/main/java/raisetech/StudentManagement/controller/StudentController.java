@@ -1,8 +1,6 @@
 package raisetech.StudentManagement.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +8,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 import raisetech.StudentManagement.controller.converter.StudentConverter;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
@@ -49,12 +46,22 @@ public class StudentController {
     return "registerStudent";
   }
 
+  // registerStudentメソッドをPOST処理に反映
   @PostMapping("/registerStudent")
   public String registerStudent(@ModelAttribute StudentDetail studentDetail, BindingResult result) {
-    if(result.hasErrors()) {
-  return "registerStudent";
+    if (result.hasErrors()) {
+      return "registerStudent";
     }
-    System.out.println(studentDetail.getStudent().getName()+"さんが新規受講生として登録されました。");
+
+    try {
+      service.registerStudent(studentDetail.getStudent()); // DBへ登録
+      System.out.println(studentDetail.getStudent().getName() + " さんが新規受講生として登録されました。");
+    } catch (Exception e) {
+      System.err.println("受講生登録エラー: " + e.getMessage());
+      return "registerStudent"; // エラー時に登録ページに戻る
+    }
+
     return "redirect:/studentList";
   }
+
 }

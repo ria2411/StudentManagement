@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d36361e-ad8b-4bcf-a8f6-d44ebe30d982" name="変更" comment="課題１２">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/registerStudent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/studentList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/controller/StudentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/repository/StudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/repository/StudentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/service/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/service/StudentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/registerStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/registerStudent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StudentController.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StudentController.class.uniqueId0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/repository/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/service/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registerStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registerStudent.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,22 +123,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Gradle.StudentManagement [:raisetech.StudentManagement.StudentManagementApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.StudentManagement [dependencies].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ソースのダウンロード.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;kadai15&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;ライブラリ&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalResources&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Gradle.StudentManagement [:raisetech.StudentManagement.StudentManagementApplication.main()].executor": "Run",
+    "Gradle.StudentManagement [dependencies].executor": "Run",
+    "Gradle.ソースのダウンロード.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "kadai15",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "プロジェクト",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.externalResources"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="アプリケーション.StudentManagementApplication">
     <configuration name="StudentManagementApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="raisetech.StudentManagement.StudentManagementApplication" />
