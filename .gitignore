@@ -7,6 +7,7 @@ kadai4.txt
 src/main/resources/application.properties
 Thumbs.db
 .gradle
-build.idea/
-.idea/
+.ideabuild/
+.idea
 build/
+src/main/resources/templates/
