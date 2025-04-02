@@ -32,7 +32,7 @@ dependencies {
 	// 便利機能、ユーティリティ
 	implementation 'org.apache.commons:commons-lang3:3.17.0'
 
-	// lombok
+	//Lombok
 	compileOnly 'org.projectlombok:lombok:1.18.36'
 	annotationProcessor 'org.projectlombok:lombok:1.18.36'
 
