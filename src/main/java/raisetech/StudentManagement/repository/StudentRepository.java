@@ -22,4 +22,5 @@ public interface StudentRepository {
       +"VALUES (#{name}, #{furigana}, #{nickname}, #{email}, #{region}, #{age}, #{gender}, #{remark}, #{isDeleted})")
   @Options(useGeneratedKeys = true, keyProperty = "id")
   void insertStudent(Student student);
+
 }
