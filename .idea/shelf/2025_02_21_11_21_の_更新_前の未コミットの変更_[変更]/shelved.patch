@@ -1,0 +1,153 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"7d36361e-ad8b-4bcf-a8f6-d44ebe30d982\" name=\"変更\" comment=\"課題5\">\n      <change afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.gradle/8.12.1/checksums/md5-checksums.bin\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/Student.class\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/StudentRepository.class\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/classes/java/test/raisetech/StudentManagement/StudentManagementApplicationTests.class\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/libs/StudentManagement-0.0.1-SNAPSHOT-plain.war\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/reports/tests/test/classes/raisetech.StudentManagement.StudentManagementApplicationTests.html\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/reports/tests/test/css/base-style.css\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/reports/tests/test/css/style.css\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/reports/tests/test/index.html\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/reports/tests/test/js/report.js\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/reports/tests/test/packages/raisetech.StudentManagement.html\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/resolvedMainClassName\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/test-results/test/TEST-raisetech.StudentManagement.StudentManagementApplicationTests.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/test-results/test/binary/output.bin\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/test-results/test/binary/results.bin\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/build/tmp/war/MANIFEST.MF\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/kadai7.txt\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/Student.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/StudentRepository.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.12.1/checksums/checksums.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.12.1/checksums/checksums.lock\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.12.1/checksums/sha1-checksums.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.12.1/checksums/sha1-checksums.bin\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.12.1/executionHistory/executionHistory.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.12.1/executionHistory/executionHistory.bin\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.12.1/executionHistory/executionHistory.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.12.1/executionHistory/executionHistory.lock\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.12.1/fileHashes/fileHashes.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.12.1/fileHashes/fileHashes.bin\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.12.1/fileHashes/fileHashes.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.12.1/fileHashes/fileHashes.lock\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.gradle/8.12.1/fileHashes/resourceHashesCache.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/8.12.1/fileHashes/resourceHashesCache.bin\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.gradle/file-system.probe\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/file-system.probe\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/2025_02_05_13_02______.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/2025_02_05_13_02_の_更新_前の未コミットの変更_[変更]/shelved.patch\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/vcs.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/build.gradle\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/build.gradle\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/StudentManagementApplication.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/StudentManagementApplication.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/build/reports/problems/problems-report.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/build/reports/problems/problems-report.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/build/resources/main/application.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/build/resources/main/application.properties\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StudentManagementApplication.class.uniqueId0\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StudentManagementApplication.class.uniqueId0\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/github-demo\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/StudentManagementApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/StudentManagementApplication.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/application.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/application.properties\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ExternalProjectsData\">\n    <projectState path=\"$PROJECT_DIR$\">\n      <ProjectState />\n    </projectState>\n  </component>\n  <component name=\"ExternalProjectsManager\">\n    <system id=\"GRADLE\">\n      <state>\n        <task path=\"$PROJECT_DIR$\">\n          <activation />\n        </task>\n        <projects_view>\n          <tree_state>\n            <expand>\n              <path>\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\n                <item name=\"StudentManagement\" type=\"f1a62948:ProjectNode\" />\n              </path>\n              <path>\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\n                <item name=\"StudentManagement\" type=\"f1a62948:ProjectNode\" />\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\n              </path>\n              <path>\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\n                <item name=\"StudentManagement\" type=\"f1a62948:ProjectNode\" />\n                <item name=\"Dependencies\" type=\"6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode\" />\n              </path>\n            </expand>\n            <select />\n          </tree_state>\n        </projects_view>\n      </state>\n    </system>\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n        <option value=\"Interface\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"kadai7\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"ROOT_SYNC\" value=\"SYNC\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;history&quot;: [\n    {\n      &quot;state&quot;: &quot;OPEN&quot;\n    }\n  ],\n  &quot;lastFilter&quot;: {}\n}</component>\n  <component name=\"GitHubPullRequestState\">{\n  &quot;prStates&quot;: [\n    {\n      &quot;id&quot;: {\n        &quot;id&quot;: &quot;PR_kwDON0hu9s6KFY9q&quot;,\n        &quot;number&quot;: 2\n      },\n      &quot;lastSeen&quot;: 1738738291127\n    },\n    {\n      &quot;id&quot;: {\n        &quot;id&quot;: &quot;PR_kwDON0hu9s6KFC9D&quot;,\n        &quot;number&quot;: 1\n      },\n      &quot;lastSeen&quot;: 1739783210082\n    }\n  ]\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/ria2411/StudentManagement.git&quot;,\n    &quot;accountId&quot;: &quot;d803c84a-e526-4093-a2d4-ca368155104a&quot;\n  },\n  &quot;recentNewPullRequestHead&quot;: {\n    &quot;server&quot;: {\n      &quot;useHttp&quot;: false,\n      &quot;host&quot;: &quot;github.com&quot;,\n      &quot;port&quot;: null,\n      &quot;suffix&quot;: null\n    },\n    &quot;owner&quot;: &quot;ria2411&quot;,\n    &quot;repository&quot;: &quot;StudentManagement&quot;\n  }\n}</component>\n  <component name=\"ProblemsViewState\">\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 5\n}</component>\n  <component name=\"ProjectId\" id=\"2sbbtiAHyiuaUKgHXSweU4PlX8p\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"Gradle.StudentManagement [:raisetech.StudentManagement.StudentManagementApplication.main()].executor\": \"Run\",\n    \"Gradle.StudentManagement [dependencies].executor\": \"Run\",\n    \"Gradle.ソースのダウンロード.executor\": \"Run\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.git.unshallow\": \"true\",\n    \"git-widget-placeholder\": \"kadai7 の #4\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"project.structure.last.edited\": \"ライブラリ\",\n    \"project.structure.proportion\": \"0.0\",\n    \"project.structure.side.proportion\": \"0.0\",\n    \"settings.editor.selected.configurable\": \"project.propVCSSupport.DirectoryMappings\"\n  }\n}]]></component>\n  <component name=\"RunManager\" selected=\"アプリケーション.StudentManagementApplication\">\n    <configuration name=\"StudentManagementApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"raisetech.StudentManagement.StudentManagementApplication\" />\n      <module name=\"StudentManagement.main\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"raisetech.StudentManagement.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"StudentManagement [dependencies]\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\n      <ExternalSystemSettings>\n        <option name=\"executionName\" />\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\n        <option name=\"scriptParameters\" />\n        <option name=\"taskDescriptions\">\n          <list />\n        </option>\n        <option name=\"taskNames\">\n          <list>\n            <option value=\"dependencies\" />\n          </list>\n        </option>\n        <option name=\"vmOptions\" />\n      </ExternalSystemSettings>\n      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\n      <DebugAllEnabled>false</DebugAllEnabled>\n      <RunAsTest>false</RunAsTest>\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Gradle.StudentManagement [dependencies]\" />\n        <item itemvalue=\"アプリケーション.StudentManagementApplication\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"アプリケーションレベル\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"デフォルトタスク\">\n      <changelist id=\"7d36361e-ad8b-4bcf-a8f6-d44ebe30d982\" name=\"変更\" comment=\"\" />\n      <created>1738727438037</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1738727438037</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"初回コミット\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1738727938138</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1738727938138</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"初回コミット\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1738728143375</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1738728143375</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"課題4\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1738731365860</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1738731365860</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"課題5\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1738738866581</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1738738866581</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"5\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Merge remote-tracking branch 'origin/main'\" />\n    <MESSAGE value=\"初回コミット\" />\n    <MESSAGE value=\"課題4\" />\n    <MESSAGE value=\"課題5\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"課題5\" />\n    <option name=\"LAST_CHUNK_COMMIT_MESSAGE\" value=\"課題4\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 5fc513e41a7912d94f32d9f94d3604f8c2f41ac4)
++++ b/.idea/workspace.xml	(date 1740101998699)
+@@ -4,51 +4,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="7d36361e-ad8b-4bcf-a8f6-d44ebe30d982" name="変更" comment="課題5">
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.gradle/8.12.1/checksums/md5-checksums.bin" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/Student.class" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/StudentRepository.class" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/classes/java/test/raisetech/StudentManagement/StudentManagementApplicationTests.class" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/libs/StudentManagement-0.0.1-SNAPSHOT-plain.war" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/raisetech.StudentManagement.StudentManagementApplicationTests.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/raisetech.StudentManagement.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/resolvedMainClassName" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-raisetech.StudentManagement.StudentManagementApplicationTests.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/kadai7.txt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/Student.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/StudentRepository.java" afterDir="false" />
++    <list default="true" id="7d36361e-ad8b-4bcf-a8f6-d44ebe30d982" name="変更" comment="課題７">
+       <change beforePath="$PROJECT_DIR$/.gradle/8.12.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.12.1/checksums/checksums.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/8.12.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.12.1/checksums/sha1-checksums.bin" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/8.12.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.12.1/executionHistory/executionHistory.bin" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.gradle/8.12.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.12.1/executionHistory/executionHistory.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/8.12.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.12.1/fileHashes/fileHashes.bin" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.gradle/8.12.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.12.1/fileHashes/fileHashes.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/8.12.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.12.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_02_05_13_02______.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2025_02_05_13_02_の_更新_前の未コミットの変更_[変更]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/StudentManagementApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/raisetech/StudentManagement/StudentManagementApplication.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StudentManagementApplication.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StudentManagementApplication.class.uniqueId0" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/github-demo" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/StudentManagementApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/StudentManagementApplication.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -118,18 +79,18 @@
+   <component name="GitHubPullRequestState">{
+   &quot;prStates&quot;: [
+     {
+-      &quot;id&quot;: {
+-        &quot;id&quot;: &quot;PR_kwDON0hu9s6KFY9q&quot;,
+-        &quot;number&quot;: 2
+-      },
+-      &quot;lastSeen&quot;: 1738738291127
+-    },
+-    {
+       &quot;id&quot;: {
+         &quot;id&quot;: &quot;PR_kwDON0hu9s6KFC9D&quot;,
+         &quot;number&quot;: 1
+       },
+       &quot;lastSeen&quot;: 1739783210082
++    },
++    {
++      &quot;id&quot;: {
++        &quot;id&quot;: &quot;PR_kwDON0hu9s6LsrYk&quot;,
++        &quot;number&quot;: 4
++      },
++      &quot;lastSeen&quot;: 1740032351480
+     }
+   ]
+ }</component>
+@@ -161,21 +122,21 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Gradle.StudentManagement [:raisetech.StudentManagement.StudentManagementApplication.main()].executor": "Run",
+-    "Gradle.StudentManagement [dependencies].executor": "Run",
+-    "Gradle.ソースのダウンロード.executor": "Run",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "git-widget-placeholder": "kadai7 の #4",
+-    "kotlin-language-version-configured": "true",
+-    "project.structure.last.edited": "ライブラリ",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.0",
+-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Gradle.StudentManagement [:raisetech.StudentManagement.StudentManagementApplication.main()].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.StudentManagement [dependencies].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ソースのダウンロード.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;kadai7 の #4&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;ライブラリ&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RunManager" selected="アプリケーション.StudentManagementApplication">
+     <configuration name="StudentManagementApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="raisetech.StudentManagement.StudentManagementApplication" />
+@@ -260,7 +221,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1738738866581</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="課題７">
++      <option name="closed" value="true" />
++      <created>1740031781692</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1740031781692</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -279,7 +248,8 @@
+     <MESSAGE value="初回コミット" />
+     <MESSAGE value="課題4" />
+     <MESSAGE value="課題5" />
+-    <option name="LAST_COMMIT_MESSAGE" value="課題5" />
++    <MESSAGE value="課題７" />
++    <option name="LAST_COMMIT_MESSAGE" value="課題７" />
+     <option name="LAST_CHUNK_COMMIT_MESSAGE" value="課題4" />
+   </component>
+ </project>
+\ No newline at end of file
