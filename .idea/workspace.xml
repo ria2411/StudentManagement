@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7d36361e-ad8b-4bcf-a8f6-d44ebe30d982" name="変更" comment="課題１２">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/raisetech/StudentManagement/repository/StudentRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

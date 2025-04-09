@@ -4,8 +4,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.stream.Collectors;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
 import raisetech.StudentManagement.repository.StudentRepository;
@@ -22,10 +20,6 @@ public class StudentService {
 
   public List<Student> searchStudentList() {
     return repository.search();
-  }
-
-  public List<StudentCourses> searchStudentCoueseList() {
-    return repository.searchStudentCourses();
   }
 
   public List<StudentCourses> searchStudentCoursesList() {
