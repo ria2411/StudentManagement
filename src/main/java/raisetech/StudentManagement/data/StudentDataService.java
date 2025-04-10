@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 import raisetech.StudentManagement.repository.StudentRepository;
 
 @Service
-public class StudentService {
+public class StudentDataService {
   private final StudentRepository repository;
 
-  public StudentService(StudentRepository repository) {
+  public StudentDataService(StudentRepository repository) {
     this.repository = repository;
   }
 

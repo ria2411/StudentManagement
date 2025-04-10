@@ -39,8 +39,6 @@ dependencies {
 	// MySQLドライバ
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
-
-
 	//Mybatis
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
 
