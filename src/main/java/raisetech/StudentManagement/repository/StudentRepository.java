@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
+import org.apache.ibatis.annotations.Update;
+
 
 @Mapper
 public interface StudentRepository {
@@ -25,5 +27,14 @@ public interface StudentRepository {
       +"VALUES (#{name}, #{furigana}, #{nickname}, #{email}, #{region}, #{age}, #{gender}, #{remark}, #{isDeleted})")
   @Options(useGeneratedKeys = true, keyProperty = "id")
   void insertStudent(Student student);
+
+  @Select("SELECT * FROM students WHERE id = #{id}")
+  Student findById(int id);
+
+
+  @Update("UPDATE students SET name = #{name}, furigana = #{furigana}, nickname = #{nickname}, " +
+      "email = #{email}, region = #{region}, age = #{age}, gender = #{gender}, " +
+      "remark = #{remark}, is_deleted = #{isDeleted} WHERE id = #{id}")
+  void updateStudent(Student student);
 
 }

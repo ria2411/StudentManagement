@@ -15,4 +15,10 @@ public class StudentDataService {
   public List<StudentCourses> getAllCourses() {
     return repository.findAllCourses();
   }
+
+  // 修正：studentRepository → repository
+  public void updateStudent(Student student) {
+    repository.updateStudent(student);  // 修正した部分
+  }
+
 }

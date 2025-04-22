@@ -13,6 +13,8 @@ import raisetech.StudentManagement.domain.StudentDetail;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
 import raisetech.StudentManagement.service.StudentService;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @Controller
 public class StudentController {
@@ -63,4 +65,31 @@ public class StudentController {
 
     return "redirect:/studentList";
   }
+
+  @GetMapping("/editStudent/{id}")
+  public String editStudent(@PathVariable int id, Model model) {
+    Student student = service.findStudentById(id);
+    StudentDetail studentDetail = new StudentDetail();
+    studentDetail.setStudent(student);
+    model.addAttribute("studentDetail", studentDetail);
+    return "editStudent";
+  }
+
+  @PostMapping("/updateStudent")
+  public String updateStudent(@ModelAttribute StudentDetail studentDetail, BindingResult result) {
+    if (result.hasErrors()) {
+      return "editStudent";
+    }
+
+    try {
+      service.updateStudent(studentDetail.getStudent());
+      System.out.println("受講生ID " + studentDetail.getStudent().getId() + " の情報を更新しました。");
+    } catch (Exception e) {
+      System.err.println("更新エラー: " + e.getMessage());
+      return "editStudent";
+    }
+
+    return "redirect:/studentList";
+  }
+
 }

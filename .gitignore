@@ -8,6 +8,7 @@ src/main/resources/application.properties
 Thumbs.db
 .gradle
 .ideabuild/
-.idea
 build/
 src/main/resources/templates/
+/.idea/
+/gradle/
