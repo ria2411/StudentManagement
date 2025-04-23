@@ -9,6 +9,5 @@ Thumbs.db
 .gradle
 .ideabuild/
 build/
-src/main/resources/templates/
 /.idea/
 /gradle/
