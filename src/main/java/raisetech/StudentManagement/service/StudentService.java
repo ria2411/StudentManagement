@@ -26,6 +26,11 @@ public class StudentService {
     return repository.searchStudentCourses();
   }
 
+  // updateStudent メソッドで repository を使うように修正
+  public void updateStudent(Student student) {
+    repository.updateStudent(student);  // 修正: studentRepository → repository
+  }
+
   // リポジトリを呼び出して新規登録するメソッド
   public void registerStudent(Student student) {
     repository.insertStudent(student);
@@ -41,5 +46,10 @@ public class StudentService {
     return repository.searchStudentCourses().stream()
         .filter(course -> "Javaコース".equals(course.getCourseName()))
         .collect(Collectors.toList());
+  }
+
+  // findStudentById メソッドで repository を使うように修正
+  public Student findStudentById(int id) {
+    return repository.findById(id);  // 修正: studentRepository → repository
   }
 }
