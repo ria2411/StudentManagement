@@ -13,3 +13,10 @@ build/
 /gradle/
 .idea/
 gradle/wrapper/
+
+.gradle
+.idea
+build
+gradle
+build.gradle
+gradlew
