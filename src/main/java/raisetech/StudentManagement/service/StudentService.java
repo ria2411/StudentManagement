@@ -52,4 +52,8 @@ public class StudentService {
   public Student findStudentById(int id) {
     return repository.findById(id);  // 修正: studentRepository → repository
   }
+
+  public List<Student> findActiveStudents() {
+    return repository.findByIsDeletedFalse();
+  }
 }

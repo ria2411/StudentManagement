@@ -31,10 +31,11 @@ public interface StudentRepository {
   @Select("SELECT * FROM students WHERE id = #{id}")
   Student findById(int id);
 
-
   @Update("UPDATE students SET name = #{name}, furigana = #{furigana}, nickname = #{nickname}, " +
       "email = #{email}, region = #{region}, age = #{age}, gender = #{gender}, " +
       "remark = #{remark}, is_deleted = #{isDeleted} WHERE id = #{id}")
   void updateStudent(Student student);
 
+  @Select("SELECT * FROM students WHERE is_deleted = false")
+  List<Student> findByIsDeletedFalse();
 }
