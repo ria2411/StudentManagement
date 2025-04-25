@@ -18,3 +18,5 @@ gradle/wrapper/
 .idea
 build
 gradle
+build.gradle
+gradlew
