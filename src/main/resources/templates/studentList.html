@@ -21,7 +21,7 @@
   </thead>
   <tbody>
   <tr th:each="studentDetail:${studentList}">
-    <td th:text="${studentDetail.student.id}">2005</td>
+    <td th:text="${studentDetail.student.id}">1</td>
     <td>
       <a th:href="@{'/editStudent/' + ${studentDetail.student.id}}"
          th:text="${studentDetail.student.name}">名前</a>

@@ -1,6 +1,7 @@
 package raisetech.StudentManagement;
 
 import java.util.List;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,7 @@ import raisetech.StudentManagement.repository.StudentRepository;
 
 
 @SpringBootApplication
+@MapperScan("raisetech.StudentManagement.repository")
 public class StudentManagementApplication {
 
 	public static void main(String[] args) {
