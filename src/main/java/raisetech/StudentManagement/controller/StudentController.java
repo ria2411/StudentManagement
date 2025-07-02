@@ -18,25 +18,53 @@ import raisetech.StudentManagement.data.StudentCourses;
 import raisetech.StudentManagement.service.StudentService;
 import org.springframework.web.bind.annotation.PathVariable;
 
+/**
+ * 受講生の検索や登録、更新などを行うREST APIとして実行されるControllerです。
+ */
 
 @RestController
 public class StudentController {
 
   private StudentService service;
-  private StudentConverter converter;
 
   @Autowired
-  public StudentController(StudentService service, StudentConverter converter) {
+  public StudentController(StudentService service) {
     this.service = service;
-    this.converter = converter;
   }
 
+  /**
+   * 受講生一覧検索です。
+   * 全件検索を行うので、条件指定は行いません。
+   *
+   * @return　受講生検索（全件）
+   */
   @GetMapping("/studentList")
   public List<StudentDetail> getStudentList() {
-    List<Student> students = service.findActiveStudents();
-    List<StudentCourses> studentCourses = service.searchStudentCoursesList();
+    return service.searchStudentList();
+  }
 
-    return converter.convertStudentDetails(students, studentCourses);
+  /**
+   * 受講生検索です。
+   * IDに紐づく任意の受講生の情報を取得します。
+   *
+   * @param id　受講生ID
+   * @return　受講生
+   */
+  @GetMapping("/student/{id}")
+  public ResponseEntity<StudentDetail> getStudentById(@PathVariable int id) {
+    Student student = service.findStudentById(id);
+
+    if (student == null || student.isDeleted()) {
+      return ResponseEntity.notFound().build();
+    }
+
+    StudentDetail studentDetail = new StudentDetail();
+    studentDetail.setStudent(student);
+
+    List<StudentCourses> courses = service.findCoursesByStudentId(id); // ←ここ修正
+    studentDetail.setStudentCourses(courses);
+
+    return ResponseEntity.ok(studentDetail);
   }
 
   @GetMapping("/studentCourseList")
@@ -44,36 +72,18 @@ public class StudentController {
     return service.searchStudentCoursesList();
   }
 
-  @GetMapping("/newStudent")
-  public String newStudent(Model model) {
-    model.addAttribute("studentDetail", new StudentDetail());
-    return "registerStudent";
-  }
-
   // registerStudentメソッドをPOST処理に反映
   @PostMapping("/registerStudent")
-  public String registerStudent(@ModelAttribute StudentDetail studentDetail, BindingResult result) {
-    if (result.hasErrors()) {
-      return "registerStudent";
-    }
-
-    try {
-      service.registerStudent(studentDetail.getStudent()); // DBへ登録
-      System.out.println(studentDetail.getStudent().getName() + " さんが新規受講生として登録されました。");
-    } catch (Exception e) {
-      System.err.println("受講生登録エラー: " + e.getMessage());
-      return "registerStudent"; // エラー時に登録ページに戻る
-    }
-
-    return "redirect:/studentList";
+  public ResponseEntity<StudentDetail> registerStudent(@RequestBody StudentDetail studentDetail) {
+    StudentDetail responceStudentDetail = service.registerStudent(studentDetail.getStudent());
+    return ResponseEntity.ok(responceStudentDetail);
   }
 
   @GetMapping("/editStudent/{id}")
-  public String editStudent(@PathVariable int id, Model model) {
+  public String editStudent(@PathVariable int id) {
     Student student = service.findStudentById(id);
     StudentDetail studentDetail = new StudentDetail();
     studentDetail.setStudent(student);
-    model.addAttribute("studentDetail", studentDetail);
     return "editStudent";
   }
 
