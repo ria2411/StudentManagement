@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="raisetech.StudentManagement.repository.StudentRepository">
+
+  <!-- 全受講生検索 -->
+  <select id="search" resultType="raisetech.StudentManagement.data.Student">
+    SELECT * FROM students
+  </select>
+
+  <!-- IDで受講生検索 -->
+  <select id="findById" resultType="raisetech.StudentManagement.data.Student" parameterType="int">
+    SELECT * FROM students WHERE id = #{id}
+  </select>
+
+  <!-- 全受講生コース検索 -->
+  <select id="findAllCourses" resultType="raisetech.StudentManagement.data.StudentCourses">
+    SELECT * FROM student_courses
+  </select>
+
+  <!-- 受講生コース一覧（別名） -->
+  <select id="searchStudentCourses" resultType="raisetech.StudentManagement.data.StudentCourses">
+    SELECT * FROM student_courses
+  </select>
+
+  <!-- 受講生IDからコース検索 -->
+  <select id="findCoursesByStudentId" resultType="raisetech.StudentManagement.data.StudentCourses" parameterType="int">
+    SELECT * FROM student_courses WHERE student_id = #{studentId}
+  </select>
+
+  <!-- 新規受講生登録 -->
+  <insert id="insertStudent" parameterType="raisetech.StudentManagement.data.Student" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO students (name, furigana, nickname, email, region, age, gender, remark, is_deleted)
+    VALUES (#{name}, #{furigana}, #{nickname}, #{email}, #{region}, #{age}, #{gender}, #{remark}, #{isDeleted})
+  </insert>
+
+  <!-- 受講生情報の更新 -->
+  <update id="updateStudent" parameterType="raisetech.StudentManagement.data.Student">
+    UPDATE students
+    SET name = #{name},
+    furigana = #{furigana},
+    nickname = #{nickname},
+    email = #{email},
+    region = #{region},
+    age = #{age},
+    gender = #{gender},
+    remark = #{remark},
+    is_deleted = #{isDeleted}
+    WHERE id = #{id}
+  </update>
+
+  <!-- 削除されていない受講生一覧 -->
+  <select id="findByIsDeletedFalse" resultType="raisetech.StudentManagement.data.Student">
+    SELECT * FROM students WHERE is_deleted = false
+  </select>
+
+</mapper>
