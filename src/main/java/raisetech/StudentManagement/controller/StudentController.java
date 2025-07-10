@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import raisetech.StudentManagement.domain.StudentDetail;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
+import raisetech.StudentManagement.exception.CustomException;
 import raisetech.StudentManagement.service.StudentService;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -36,7 +37,7 @@ public class StudentController {
    */
   @GetMapping("/studentList")
   public List<StudentDetail> getStudentList() {
-    return service.searchStudentList();
+    throw new CustomException("表示に失敗しました。");
   }
 
   /**
