@@ -1,5 +1,6 @@
 package raisetech.StudentManagement.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +36,7 @@ public class StudentController {
    *
    * @return 受講生詳細一覧検索（全件）
    */
+  @Operation(summary = "一覧検索", description = "受講生の一覧を検索します。")
   @GetMapping("/studentList")
   public List<StudentDetail> getStudentList() {
     throw new CustomException("表示に失敗しました。");
@@ -47,6 +49,7 @@ public class StudentController {
    * @param id　受講生ID
    * @return 受講生
    */
+  @Operation(summary = "受講生ID検索", description = "受講生IDに基づき受講生情報を検索します。")
   @GetMapping("/student/{id}")
   public ResponseEntity<StudentDetail> getStudentById(@PathVariable int id) {
     Student student = service.findStudentById(id);
@@ -64,6 +67,7 @@ public class StudentController {
     return ResponseEntity.ok(studentDetail);
   }
 
+  @Operation(summary = "受講生コース検索", description = "受講生コース一覧の検索をします。")
   @GetMapping("/studentCourseList")
   public List<StudentCourses> getStudentCourseList() {
     return service.searchStudentCoursesList();
@@ -74,7 +78,7 @@ public class StudentController {
    * @param studentDetail　受講生詳細
    * @return 実行結果
    */
-  // registerStudentメソッドをPOST処理に反映
+  @Operation(summary = "受講生登録", description = "受講生を登録します。")
   @PostMapping("/registerStudent")
   public ResponseEntity<StudentDetail> registerStudent(@RequestBody StudentDetail studentDetail) {
     StudentDetail responseStudentDetail = service.registerStudent(studentDetail.getStudent());
@@ -87,6 +91,7 @@ public class StudentController {
    * @param studentDetail 受講生詳細
    * @return 実行結果
    */
+  @Operation(summary = "受講生更新", description = "受講生情報を更新します。")
   @PutMapping ("/updateStudent")
   public ResponseEntity<String> updateStudent(@RequestBody StudentDetail studentDetail) {
     service.updateStudent(studentDetail.getStudent());
