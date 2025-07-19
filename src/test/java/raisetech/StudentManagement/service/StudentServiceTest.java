@@ -15,7 +15,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import raisetech.StudentManagement.controller.converter.StudentConverter;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
-import raisetech.StudentManagement.data.StudentDataService;
 import raisetech.StudentManagement.domain.StudentDetail;
 import raisetech.StudentManagement.repository.StudentRepository;
 
@@ -38,38 +37,23 @@ class StudentServiceTest {
 
   @Test
   void 受講生詳細の一覧検索_リポジトリとコンバーターの処理が適切に呼び出せていること() {
+    // given
     List<Student> studentList = new ArrayList<>();
     List<StudentCourses> studentCoursesList = new ArrayList<>();
     Mockito.when(repository.search()).thenReturn(studentList);
     Mockito.when(repository.searchStudentCourses()).thenReturn(studentCoursesList);
 
-
+    // when(実行)
     List<StudentDetail> actual = sut.searchStudentList();
 
+    // then(検証)
     Mockito.verify(repository, Mockito.times(1)).search();
     Mockito.verify(repository, Mockito.times(1)).searchStudentCourses();
     Mockito.verify(converter, Mockito.times(1)).convertStudentDetails(studentList, studentCoursesList);
-
   }
 
   @Test
   void 受講生登録_リポジトリのINSERTが呼び出されること() {
-    Student student = new Student();  // デフォルトコンストラクタ
-
-    student.setId(1);
-    student.setName("酒井栞");
-    student.setFurigana("サカイシオリ");
-    student.setNickname("シオリ");
-    student.setEmail("shiori.sakai@abccc.co.jp");
-    student.setRegion("東京");
-    student.setAge(36);
-    student.setGender("Female");
-    student.setRemark("特になし");
-    student.setDeleted(false);
-  }
-
-  @Test
-  void 受講生更新_repositoryのupdateが呼ばれること() {
     // given
     Student student = new Student();
     student.setId(1);
@@ -83,12 +67,31 @@ class StudentServiceTest {
     student.setRemark("特になし");
     student.setDeleted(false);
 
-    // repository.updateはvoidなので特にwhenは不要
+    // when(実行)
+    sut.registerStudent(student);
 
-    // when
+    // then(検証)
+    Mockito.verify(repository, Mockito.times(1)).insertStudent(student);
+  }
+
+  @Test
+  void 受講生更新_repositoryのupdateが呼ばれること() {
+    // given
+    Student student = new Student();
+    student.setName("酒井栞");
+    student.setFurigana("サカイシオリ");
+    student.setNickname("シオリ");
+    student.setEmail("shiori.sakai@abccc.co.jp");
+    student.setRegion("東京");
+    student.setAge(36);
+    student.setGender("Female");
+    student.setRemark("特になし");
+    student.setDeleted(false);
+
+    // when(実行)
     sut.updateStudent(student);
 
-    // then
+    // then(検証)
     Mockito.verify(repository, Mockito.times(1)).updateStudent(student);
   }
 
