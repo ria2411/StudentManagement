@@ -15,6 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import raisetech.StudentManagement.controller.converter.StudentConverter;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
+import raisetech.StudentManagement.data.StudentDataService;
 import raisetech.StudentManagement.domain.StudentDetail;
 import raisetech.StudentManagement.repository.StudentRepository;
 
@@ -55,17 +56,18 @@ class StudentServiceTest {
   @Test
   void 受講生登録_リポジトリのINSERTが呼び出されること() {
     // given
-    Student student = new Student();
-    student.setId(1);
-    student.setName("酒井栞");
-    student.setFurigana("サカイシオリ");
-    student.setNickname("シオリ");
-    student.setEmail("shiori.sakai@abccc.co.jp");
-    student.setRegion("東京");
-    student.setAge(36);
-    student.setGender("Female");
-    student.setRemark("特になし");
-    student.setDeleted(false);
+    Student student = new Student(
+        1,
+        "酒井栞",
+        "サカイシオリ",
+        "シオリ",
+        "shiori.sakai@abccc.co.jp",
+        "東京",
+        36,
+        "Female",
+        "特になし",
+        false
+    );
 
     // when(実行)
     sut.registerStudent(student);
@@ -74,25 +76,31 @@ class StudentServiceTest {
     Mockito.verify(repository, Mockito.times(1)).insertStudent(student);
   }
 
+
   @Test
   void 受講生更新_repositoryのupdateが呼ばれること() {
     // given
-    Student student = new Student();
-    student.setName("酒井栞");
-    student.setFurigana("サカイシオリ");
-    student.setNickname("シオリ");
-    student.setEmail("shiori.sakai@abccc.co.jp");
-    student.setRegion("東京");
-    student.setAge(36);
-    student.setGender("Female");
-    student.setRemark("特になし");
-    student.setDeleted(false);
+    Student student = new Student(
+        1,
+        "酒井栞",
+        "サカイシオリ",
+        "シオリ",
+        "shiori.sakai@abccc.co.jp",
+        "東京",
+        36,
+        "Female",
+        "特になし",
+        false
+    );
 
-    // when(実行)
+    // repository.updateはvoidなので特にwhenは不要
+
+    // when
     sut.updateStudent(student);
 
-    // then(検証)
+    // then
     Mockito.verify(repository, Mockito.times(1)).updateStudent(student);
   }
+
 
 }
