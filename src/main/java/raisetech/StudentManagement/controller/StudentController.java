@@ -39,7 +39,7 @@ public class StudentController {
   @Operation(summary = "一覧検索", description = "受講生の一覧を検索します。")
   @GetMapping("/studentList")
   public List<StudentDetail> getStudentList() {
-    return service.searchStudentList();
+    throw new CustomException("表示に失敗しました。");
   }
 
   /**
