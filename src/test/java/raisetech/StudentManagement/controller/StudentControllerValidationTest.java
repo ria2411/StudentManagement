@@ -33,7 +33,7 @@ class StudentControllerValidationTest {
   void 名前が空文字の場合はバリデーションエラーになる() throws Exception {
     // nameが空
     Student student = new Student();
-    student.setName("");
+    student.setName("酒井栞");
     student.setFurigana("サカイシオリ");
     student.setNickname("シオリ");
     student.setEmail("shiori.sakai@abcc.co.jp");
