@@ -1,6 +1,7 @@
 package raisetech.StudentManagement.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -80,7 +81,7 @@ public class StudentController {
    */
   @Operation(summary = "受講生登録", description = "受講生を登録します。")
   @PostMapping("/registerStudent")
-  public ResponseEntity<StudentDetail> registerStudent(@RequestBody StudentDetail studentDetail) {
+  public ResponseEntity<StudentDetail> registerStudent(@RequestBody @Valid StudentDetail studentDetail) {
     StudentDetail responseStudentDetail = service.registerStudent(studentDetail.getStudent());
     return ResponseEntity.ok(responseStudentDetail);
   }
