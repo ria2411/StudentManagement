@@ -76,5 +76,4 @@ class StudentConverterTest {
     assertEquals(1, detail2.getStudentCourses().size());
     assertEquals("MySQL", detail2.getStudentCourses().get(0).getCourseName());
   }
-
 }
