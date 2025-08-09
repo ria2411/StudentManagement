@@ -20,7 +20,7 @@ public class StudentConverter {
    *
    * @param studentList　受講生一覧
    * @param studentCoursesList　受講生コース情報のリスト
-   * @return　受講生詳細情報のリスト
+   * @return 受講生詳細情報のリスト
    */
 
   public List<StudentDetail> convertStudentDetails(List<Student> studentList,
