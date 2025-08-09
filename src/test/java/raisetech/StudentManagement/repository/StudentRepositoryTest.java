@@ -1,11 +1,14 @@
 package raisetech.StudentManagement.repository;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
@@ -23,15 +26,14 @@ class StudentRepositoryTest {
   void setUp() {
     jdbcTemplate.execute("DELETE FROM students");
     jdbcTemplate.execute("""
-    INSERT INTO students
-    (name, furigana, nickname, email, region, age, gender, remark, is_deleted)
-    VALUES
-    ('酒井栞', 'シオリサカイ', 'シオリ', 'shiori.sakai@abccc.co.jp', '東京', 36, 'Female', '特になし', FALSE)
-  """);
+          INSERT INTO students
+          (name, furigana, nickname, email, region, age, gender, remark, is_deleted)
+          VALUES
+          ('酒井栞', 'シオリサカイ', 'シオリ', 'shiori.sakai@abccc.co.jp', '東京', 36, 'Female', '特になし', FALSE)
+        """);
     // H2の場合は自動採番の位置を調整（任意）
     jdbcTemplate.execute("ALTER TABLE students ALTER COLUMN id RESTART WITH 10");
   }
-
 
 
   @Test
@@ -110,5 +112,48 @@ class StudentRepositoryTest {
     Assertions.assertEquals(newNickname, updated.getNickname(), "ニックネームが更新されていること");
     Assertions.assertEquals("更新テスト", updated.getRemark(), "備考が更新されていること");
 
+  }
+
+
+  @Test
+  void 必須項目がnullだと登録に失敗すること() {
+    Student student = new Student();
+    student.setFurigana("フリガナ");
+    student.setEmail("null.name@example.com");
+    student.setDeleted(false);
+
+    Assertions.assertThrows(DataIntegrityViolationException.class, () -> {
+      sut.insertStudent(student);
+    });
+  }
+
+  @Test
+  void 存在しないIDで更新しても例外が出ないこと() {
+    Student student = new Student();
+    student.setId(9999);
+    student.setName("存在しない人");
+    student.setFurigana("ソンザイシナイヒト");
+    student.setEmail("no.one@example.com");
+    student.setDeleted(false);
+
+    Assertions.assertDoesNotThrow(() -> sut.updateStudent(student));
+  }
+
+  @Test
+  void 存在しないIDを検索するとnullが返ること() {
+    Student result = sut.findById(9999);
+    Assertions.assertNull(result, "存在しないIDならnullが返るはず");
+  }
+
+  @Test
+  void 年齢が負数でも登録できること() {
+    Student student = new Student();
+    student.setName("マイナス年齢");
+    student.setFurigana("マイナスネンレイ");
+    student.setEmail("minus@example.com");
+    student.setAge(-7);
+    student.setDeleted(false);
+
+    Assertions.assertDoesNotThrow(() -> sut.insertStudent(student));
   }
 }
