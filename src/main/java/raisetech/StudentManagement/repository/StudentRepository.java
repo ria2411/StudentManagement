@@ -1,13 +1,9 @@
 package raisetech.StudentManagement.repository;
 
 import java.util.List;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
-import org.apache.ibatis.annotations.Update;
 
 /**
  * 受講生テーブルと受講生コース情報テーブルと紐づくRepositoryです。
