@@ -2,6 +2,8 @@ package raisetech.StudentManagement.repository;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import raisetech.StudentManagement.data.ApplicationStatus;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
 
@@ -47,8 +49,18 @@ public interface StudentRepository {
   // 新規受講生情報を登録するためのINSERT文
   void insertStudent(Student student);
 
+
+
   void updateStudent(Student student);
 
   List<Student> findByIsDeletedFalse();
 
+
+  // 全申込状況
+  @Select("SELECT id, student_course_id AS studentCourseId, status FROM application_status")
+  List<ApplicationStatus> getAllStatuses();
+
+  // コースIDで取得
+  @Select("SELECT id, student_course_id AS studentCourseId, status FROM application_status WHERE student_course_id = #{courseId}")
+  ApplicationStatus getStatusByCourseId(int courseId);
 }

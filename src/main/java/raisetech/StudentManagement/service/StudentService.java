@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.stream.Collectors;
 import raisetech.StudentManagement.controller.converter.StudentConverter;
+import raisetech.StudentManagement.data.ApplicationStatus;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
 import raisetech.StudentManagement.domain.StudentDetail;
@@ -34,6 +35,18 @@ public class StudentService {
   public List<StudentDetail> searchStudentList() {
     List<Student> studentList = repository.search();
     List<StudentCourses> studentCoursesList = repository.searchStudentCourses();
+
+
+    // 全申込状況を取得
+    List<ApplicationStatus> statusList = repository.getAllStatuses();
+
+    // StudentCourses に status をセット
+    for (StudentCourses course : studentCoursesList) {
+      statusList.stream()
+          .filter(s -> s.getStudentCourseId() == course.getId())
+          .findFirst()
+          .ifPresent(s -> course.setStatus(s.getStatus()));
+    }
     return converter.convertStudentDetails(studentList, studentCoursesList);
   }
 
@@ -80,4 +93,17 @@ public class StudentService {
     return repository.findCoursesByStudentId(studentId);
   }
 
+  /**
+   * 全申込状況を取得
+   */
+  public List<ApplicationStatus> getAllApplicationStatuses() {
+    return repository.getAllStatuses();
+  }
+
+  /**
+   * コースIDで申込状況を取得
+   */
+  public ApplicationStatus getApplicationStatusByCourseId(int courseId) {
+    return repository.getStatusByCourseId(courseId);
+  }
 }

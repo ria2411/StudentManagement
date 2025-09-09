@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import raisetech.StudentManagement.data.ApplicationStatus;
 import raisetech.StudentManagement.domain.StudentDetail;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
@@ -42,6 +43,7 @@ public class StudentController {
   @Operation(summary = "一覧検索", description = "受講生の一覧を検索します。")
   @GetMapping("/studentList")
   public List<StudentDetail> getStudentList() {
+
     return service.searchStudentList();
   }
 
@@ -65,6 +67,16 @@ public class StudentController {
     studentDetail.setStudent(student);
 
     List<StudentCourses> courses = service.findCoursesByStudentId(id); // ←ここ修正
+
+
+    // 各コースに status をセット
+    for (StudentCourses course : courses) {
+      ApplicationStatus status = service.getApplicationStatusByCourseId(course.getId());
+      if (status != null) {
+        course.setStatus(status.getStatus());
+      }
+    }
+
     studentDetail.setStudentCourses(courses);
 
     return ResponseEntity.ok(studentDetail);
@@ -100,4 +112,23 @@ public class StudentController {
     service.updateStudent(studentDetail.getStudent());
     return ResponseEntity.ok("更新処理が成功しました。");
   }
+
+
+  /**
+   * 全申込状況を取得
+   */
+  @Operation(summary = "全申込状況取得", description = "全コースの申込状況を取得します。")
+  @GetMapping("/application-statuses")
+  public List<ApplicationStatus> getAllApplicationStatuses() {
+    return service.getAllApplicationStatuses();
+  }
+
+  /**
+   * コースIDで申込状況を取得
+   */
+  @Operation(summary = "コースID申込状況取得", description = "指定したコースIDの申込状況を取得します。")
+  @GetMapping("/application-statuses/{courseId}")
+  public ApplicationStatus getApplicationStatusByCourseId(@PathVariable int courseId) {
+    return service.getApplicationStatusByCourseId(courseId);
+}
 }
