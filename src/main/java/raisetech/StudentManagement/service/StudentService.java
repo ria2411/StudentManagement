@@ -1,7 +1,10 @@
 package raisetech.StudentManagement.service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 import java.util.stream.Collectors;
 import raisetech.StudentManagement.controller.converter.StudentConverter;
@@ -64,6 +67,32 @@ public class StudentService {
     repository.insertStudent(student);
     StudentDetail studentDetail = new StudentDetail();
     studentDetail.setStudent(student);
+    return studentDetail;
+  }
+
+
+  public StudentDetail registerStudentWithCourses(StudentDetail studentDetail) {
+    // 1. 受講生登録
+    repository.insertStudent(studentDetail.getStudent());
+
+    // 2. コース情報があれば student_id をセットして登録
+    if (studentDetail.getStudentCourses() != null) {
+      for (StudentCourses course : studentDetail.getStudentCourses()) {
+        course.setStudentId(studentDetail.getStudent().getId());
+
+        if (course.getStartDate() == null) {
+          course.setStartDate(LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+          if (course.getEndDate() == null) {
+            course.setEndDate(LocalDate.now().plusYears(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+          }
+
+        }
+        repository.insertStudentCourse(course);
+      }
+    }
+
+    // 3. 登録した内容をそのまま返す
     return studentDetail;
   }
 

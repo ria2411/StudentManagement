@@ -68,7 +68,6 @@ public class StudentController {
 
     List<StudentCourses> courses = service.findCoursesByStudentId(id); // ←ここ修正
 
-
     // 各コースに status をセット
     for (StudentCourses course : courses) {
       ApplicationStatus status = service.getApplicationStatusByCourseId(course.getId());
@@ -99,6 +98,19 @@ public class StudentController {
     StudentDetail responseStudentDetail = service.registerStudent(studentDetail.getStudent());
     return ResponseEntity.ok(responseStudentDetail);
   }
+
+  /**
+   * 受講生＋コース情報の登録を行います。
+   * @param studentDetail 受講生詳細（Student と StudentCourses を含む）
+   * @return 登録後の StudentDetail
+   */
+  @Operation(summary = "受講生＋コース登録", description = "受講生とコース情報をまとめて登録します。")
+  @PostMapping("/registerStudentWithCourses")
+  public ResponseEntity<StudentDetail> registerStudentWithCourses(@RequestBody @Valid StudentDetail studentDetail) {
+    StudentDetail responseStudentDetail = service.registerStudentWithCourses(studentDetail);
+    return ResponseEntity.ok(responseStudentDetail);
+  }
+
 
   /**
    * 受講生詳細の更新を行います

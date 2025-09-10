@@ -49,9 +49,9 @@ public interface StudentRepository {
   // 新規受講生情報を登録するためのINSERT文
   void insertStudent(Student student);
 
-
-
   void updateStudent(Student student);
+
+  void insertStudentCourse(StudentCourses studentCourses);
 
   List<Student> findByIsDeletedFalse();
 
