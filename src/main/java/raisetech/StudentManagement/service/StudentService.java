@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 import java.util.stream.Collectors;
 import raisetech.StudentManagement.controller.converter.StudentConverter;
@@ -80,14 +79,19 @@ public class StudentService {
       for (StudentCourses course : studentDetail.getStudentCourses()) {
         course.setStudentId(studentDetail.getStudent().getId());
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        // startDate が null の場合は今日の日付
         if (course.getStartDate() == null) {
-          course.setStartDate(LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-
-          if (course.getEndDate() == null) {
-            course.setEndDate(LocalDate.now().plusYears(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-          }
-
+          course.setStartDate(LocalDate.now().format(formatter));
         }
+
+        // endDate が null の場合は startDate + 1年
+        if (course.getEndDate() == null) {
+          LocalDate start = LocalDate.parse(course.getStartDate(), formatter);
+          course.setEndDate(start.plusYears(1).format(formatter));
+        }
+
         repository.insertStudentCourse(course);
       }
     }
@@ -95,6 +99,7 @@ public class StudentService {
     // 3. 登録した内容をそのまま返す
     return studentDetail;
   }
+
 
   public List<Student> searchStudentsInTheir30s() {
     return repository.search().stream()
@@ -135,4 +140,66 @@ public class StudentService {
   public ApplicationStatus getApplicationStatusByCourseId(int courseId) {
     return repository.getStatusByCourseId(courseId);
   }
+
+  public List<StudentDetail> searchStudentsByCriteria(
+      String name,
+      String region,
+      Integer minAge,
+      Integer maxAge,
+      String status) {
+
+    List<Student> students = repository.search(); // 全件取得
+    List<StudentCourses> courses = repository.searchStudentCourses();
+    List<ApplicationStatus> statuses = repository.getAllStatuses();
+
+    // 学生情報での絞り込み
+    if (name != null && !name.isEmpty()) {
+      students = students.stream()
+          .filter(s -> s.getName().contains(name))
+          .collect(Collectors.toList());
+    }
+    if (region != null && !region.isEmpty()) {
+      students = students.stream()
+          .filter(s -> s.getRegion().equals(region))
+          .collect(Collectors.toList());
+    }
+    if (minAge != null) {
+      students = students.stream()
+          .filter(s -> s.getAge() >= minAge)
+          .collect(Collectors.toList());
+    }
+    if (maxAge != null) {
+      students = students.stream()
+          .filter(s -> s.getAge() <= maxAge)
+          .collect(Collectors.toList());
+    }
+
+    // courses に status をセット
+    for (StudentCourses course : courses) {
+      statuses.stream()
+          .filter(a -> a.getStudentCourseId() == course.getId())
+          .findFirst()
+          .ifPresent(a -> course.setStatus(a.getStatus()));
+    }
+
+    // status での絞り込み
+    if (status != null && !status.isEmpty()) {
+      courses = courses.stream()
+          .filter(c -> status.equals(c.getStatus()))
+          .collect(Collectors.toList());
+
+      // courses に紐づく学生だけ残す
+      List<Integer> studentIds = courses.stream()
+          .map(StudentCourses::getStudentId)
+          .distinct()
+          .toList();
+
+      students = students.stream()
+          .filter(s -> studentIds.contains(s.getId()))
+          .collect(Collectors.toList());
+    }
+
+    return converter.convertStudentDetails(students, courses);
+  }
+
 }

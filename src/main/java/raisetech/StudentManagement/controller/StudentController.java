@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import raisetech.StudentManagement.data.ApplicationStatus;
 import raisetech.StudentManagement.domain.StudentDetail;
@@ -42,10 +43,16 @@ public class StudentController {
    */
   @Operation(summary = "一覧検索", description = "受講生の一覧を検索します。")
   @GetMapping("/studentList")
-  public List<StudentDetail> getStudentList() {
+  public List<StudentDetail> getStudentList(
+      @RequestParam(required = false) String name,
+      @RequestParam(required = false) String region,
+      @RequestParam(required = false) Integer minAge,
+      @RequestParam(required = false) Integer maxAge,
+      @RequestParam(required = false) String status) {
 
-    return service.searchStudentList();
+    return service.searchStudentsByCriteria(name, region, minAge, maxAge, status);
   }
+
 
   /**
    * 受講生詳細の検索です。
@@ -94,7 +101,7 @@ public class StudentController {
    */
   @Operation(summary = "受講生登録", description = "受講生を登録します。")
   @PostMapping("/registerStudent")
-  public ResponseEntity<StudentDetail> registerStudent(@RequestBody @Valid StudentDetail studentDetail) {
+ public ResponseEntity<StudentDetail> registerStudent(@RequestBody @Valid StudentDetail studentDetail) {
     StudentDetail responseStudentDetail = service.registerStudent(studentDetail.getStudent());
     return ResponseEntity.ok(responseStudentDetail);
   }

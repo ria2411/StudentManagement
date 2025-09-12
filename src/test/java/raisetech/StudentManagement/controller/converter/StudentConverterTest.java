@@ -18,7 +18,7 @@ class StudentConverterTest {
 
     Student student = new Student(1, "山本愛莉", "ヤマモトアイリ", "アイリ", "airi.yamamoto@abbccc..co.jp",
         "埼玉", 25, "女性", "特になし", false);
-    StudentCourses courses = new StudentCourses(1, 1, "Javaベーシック", "2025-01-01", "2026-12-31");
+    StudentCourses courses = new StudentCourses(1, 1, "Javaベーシック", "2025-01-01", "2026-12-31", "null");
 
     List<StudentDetail> result = converter.convertStudentDetails(
         List.of(student),
@@ -58,9 +58,9 @@ class StudentConverterTest {
     Student student2 = new Student(2, "佐々木彗", "ササキスイ", "スイ", "sui.sasaki@example.co.jp", "東京",
         26, "男性", "特になし", false);
 
-    StudentCourses course1 = new StudentCourses(1, 1, "Java", null, null);
-    StudentCourses course2 = new StudentCourses(2, 1, "Spring", null, null);
-    StudentCourses course3 = new StudentCourses(3, 2, "MySQL", null, null);
+    StudentCourses course1 = new StudentCourses(1, 1, "Java", null, null, null);
+    StudentCourses course2 = new StudentCourses(2, 1, "Spring", null, null, null);
+    StudentCourses course3 = new StudentCourses(3, 2, "MySQL", null, null, null);
 
     List<StudentDetail> result = converter.convertStudentDetails(
         List.of(student1, student2),
