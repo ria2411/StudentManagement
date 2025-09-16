@@ -16,7 +16,6 @@ import raisetech.StudentManagement.data.ApplicationStatus;
 import raisetech.StudentManagement.domain.StudentDetail;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
-import raisetech.StudentManagement.exception.CustomException;
 import raisetech.StudentManagement.service.StudentService;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -45,6 +44,7 @@ public class StudentController {
   @GetMapping("/studentList")
   public List<StudentDetail> getStudentList(
       @RequestParam(required = false) String name,
+
       @RequestParam(required = false) String region,
       @RequestParam(required = false) Integer minAge,
       @RequestParam(required = false) Integer maxAge,
