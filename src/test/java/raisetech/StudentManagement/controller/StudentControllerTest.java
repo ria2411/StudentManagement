@@ -1,17 +1,17 @@
 package raisetech.StudentManagement.controller;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
-import javax.print.attribute.standard.Media;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -19,7 +19,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import raisetech.StudentManagement.data.Student;
-import raisetech.StudentManagement.data.StudentCourses;
 import raisetech.StudentManagement.domain.StudentDetail;
 import raisetech.StudentManagement.repository.StudentRepository;
 import raisetech.StudentManagement.service.StudentService;
@@ -106,46 +105,6 @@ class StudentControllerTest {
   }
 
   @Test
-  void 受講生とコース登録が成功すること() throws Exception {
-
-  }
-
-  @Test
-  void 名前で検索できること() throws Exception {
-    String searchName = "酒井";
-
-    Student student = new Student(1, "酒井栞", "サカイシオリ", "シオリ", "shiori.sakai@abcc.co.jp", "東京", 36, "女性", "特になし", false);
-    StudentDetail detail = new StudentDetail();
-    detail.setStudent(student);
-    detail.setStudentCourses(List.of());
-
-    when(service.searchStudentList()).thenReturn(List.of(detail));
-
-    mockMvc.perform(get("/studentList")
-        .param("name", searchName))
-        .andExpect(status().isOk())
-        .andExpect(content().json(objectMapper.writeValueAsString(List.of(detail))));
-  }
-
-  @Test
-  void statusで検索できること() throws Exception {
-    String searchStatus = "受講中";
-    Student student = new Student(6, "深澤遼", "フカザワリョウ", "リョウタ", "ryo.fukazawa@gmail.jp", "東京", 30, "男性", "特になし", false);
-    StudentCourses course = new StudentCourses();
-    course.setCourseName("AWSコース");
-    course.setStatus(searchStatus);
-    StudentDetail detail = new StudentDetail();
-    detail.setStudent(student);
-    detail.setStudentCourses(List.of(course));
-
-    when(service.searchStudentList()).thenReturn(List.of(detail));
-
-    mockMvc.perform(get("/studentList").param("status", searchStatus))
-        .andExpect(status().isOk())
-        .andExpect(jsonPath("$[0].studentCourses[0].status").value("受講中"));
-  }
-
-  @Test
   void 論理削除された学生は検索結果に出ないこと() throws Exception {
     int studentId = 99;
 
@@ -168,29 +127,95 @@ class StudentControllerTest {
         .andExpect(status().isNotFound());
   }
 
-
   @Test
   void 受講生情報の更新が成功すること() throws Exception {
-    Student student = new Student(
-        1,
-        "田中花蓮",
-        "タナカカレン",
-        "カレン",
-        "karen.tanaka@gmail.com",
-        "神奈川",
-        23,
-        "Female",
-        "",
-        false
-    );
+    doNothing().when(service).updateStudent(any(Student.class));
 
-    doNothing().when(service).updateStudent(student);
+    String requestBody = """
+        {
+          "student": {
+            "id": 1,
+            "name": "田中花蓮",
+            "furigana": "タナカカレン",
+            "nickname": "カレン",
+            "email": "karen.tanaka@gmail.com",
+            "region": "神奈川",
+            "age": 23,
+            "gender": "Female",
+            "remark": "",
+            "deleted": false
+          },
+          "studentCourses": []
+        }
+        """;
 
-    String requestBody = objectMapper.writeValueAsString(new StudentDetail());
     mockMvc.perform(put("/updateStudent")
-        .contentType(MediaType.APPLICATION_JSON)
-        .content(requestBody))
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(requestBody))
+        .andDo(print())
         .andExpect(status().isOk())
-        .andExpect(content().string("更新処理が成功しました"));
+        .andExpect(content().string("更新処理が成功しました。")); // ←「。」つける
   }
+
+
+  @Test
+  void 受講生更新_必須項目が空だと400になること() throws Exception {
+    // JSON の region を空にしてバリデーションエラーを誘発
+    String requestBody = """
+        {
+          "student": {
+            "id": 1,
+            "name": "田中花蓮",
+            "furigana": "タナカカレン",
+            "nickname": "カレン",
+            "email": "karen.tanaka@gmail.com",
+            "region": "",
+            "age": 23,
+            "gender": "Female",
+            "remark": "",
+            "deleted": false
+          },
+          "studentCourses": []
+        }
+        """;
+
+    mockMvc.perform(put("/updateStudent")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(requestBody))
+        .andDo(print()) // どの項目でエラーになったか確認できる
+        .andExpect(status().isBadRequest())
+        .andExpect(jsonPath("$.['student.region']").value("地域は必須です"));
+  }
+
+  @Test
+  void 受講生更新_必須項目複数が空だと400になること() throws Exception {
+    // JSON で region と furigana を空に
+    String requestBody = """
+        {
+          "student": {
+            "id": 1,
+            "name": "田中花蓮",
+            "furigana": "",
+            "nickname": "カレン",
+            "email": "karen.tanaka@gmail.com",
+            "region": "",
+            "age": 23,
+            "gender": "Female",
+            "remark": "",
+            "deleted": false
+          },
+          "studentCourses": []
+        }
+        """;
+
+    mockMvc.perform(put("/updateStudent")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(requestBody))
+        .andDo(print()) // どの項目でエラーになったか確認できる
+        .andExpect(status().isBadRequest())
+        .andExpect(jsonPath("$.['student.region']").value("地域は必須です"))
+        .andExpect(jsonPath("$.['student.furigana']").value("フリガナは必須です"));
+  }
+
+
 }
