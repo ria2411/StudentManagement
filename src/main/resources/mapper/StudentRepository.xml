@@ -51,6 +51,14 @@
     WHERE id = #{id}
   </update>
 
+  <!-- 新規受講生コース登録 -->
+  <insert id="insertStudentCourse" parameterType="raisetech.StudentManagement.data.StudentCourses">
+    INSERT INTO student_courses
+    (student_id, course_name, start_date, end_date, status)
+    VALUES
+    (#{studentId}, #{courseName}, #{startDate}, #{endDate}, #{status})
+  </insert>
+
   <!-- 削除されていない受講生一覧 -->
   <select id="findByIsDeletedFalse" resultType="raisetech.StudentManagement.data.Student">
     SELECT * FROM students WHERE is_deleted = false

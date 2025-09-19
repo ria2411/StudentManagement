@@ -21,4 +21,5 @@ public class StudentCourses {
   private String courseName;
   private String startDate;
   private String endDate;
+  private String status;
 }

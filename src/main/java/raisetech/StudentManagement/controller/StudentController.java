@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import raisetech.StudentManagement.data.ApplicationStatus;
 import raisetech.StudentManagement.domain.StudentDetail;
 import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentCourses;
-import raisetech.StudentManagement.exception.CustomException;
 import raisetech.StudentManagement.service.StudentService;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -41,9 +42,17 @@ public class StudentController {
    */
   @Operation(summary = "一覧検索", description = "受講生の一覧を検索します。")
   @GetMapping("/studentList")
-  public List<StudentDetail> getStudentList() {
-    throw new CustomException("表示に失敗しました。");
+  public List<StudentDetail> getStudentList(
+      @RequestParam(required = false) String name,
+
+      @RequestParam(required = false) String region,
+      @RequestParam(required = false) Integer minAge,
+      @RequestParam(required = false) Integer maxAge,
+      @RequestParam(required = false) String status) {
+
+    return service.searchStudentsByCriteria(name, region, minAge, maxAge, status);
   }
+
 
   /**
    * 受講生詳細の検索です。
@@ -65,6 +74,15 @@ public class StudentController {
     studentDetail.setStudent(student);
 
     List<StudentCourses> courses = service.findCoursesByStudentId(id); // ←ここ修正
+
+    // 各コースに status をセット
+    for (StudentCourses course : courses) {
+      ApplicationStatus status = service.getApplicationStatusByCourseId(course.getId());
+      if (status != null) {
+        course.setStatus(status.getStatus());
+      }
+    }
+
     studentDetail.setStudentCourses(courses);
 
     return ResponseEntity.ok(studentDetail);
@@ -83,10 +101,23 @@ public class StudentController {
    */
   @Operation(summary = "受講生登録", description = "受講生を登録します。")
   @PostMapping("/registerStudent")
-  public ResponseEntity<StudentDetail> registerStudent(@RequestBody @Valid StudentDetail studentDetail) {
+ public ResponseEntity<StudentDetail> registerStudent(@RequestBody @Valid StudentDetail studentDetail) {
     StudentDetail responseStudentDetail = service.registerStudent(studentDetail.getStudent());
     return ResponseEntity.ok(responseStudentDetail);
   }
+
+  /**
+   * 受講生＋コース情報の登録を行います。
+   * @param studentDetail 受講生詳細（Student と StudentCourses を含む）
+   * @return 登録後の StudentDetail
+   */
+  @Operation(summary = "受講生＋コース登録", description = "受講生とコース情報をまとめて登録します。")
+  @PostMapping("/registerStudentWithCourses")
+  public ResponseEntity<StudentDetail> registerStudentWithCourses(@RequestBody @Valid StudentDetail studentDetail) {
+    StudentDetail responseStudentDetail = service.registerStudentWithCourses(studentDetail);
+    return ResponseEntity.ok(responseStudentDetail);
+  }
+
 
   /**
    * 受講生詳細の更新を行います
@@ -100,4 +131,23 @@ public class StudentController {
     service.updateStudent(studentDetail.getStudent());
     return ResponseEntity.ok("更新処理が成功しました。");
   }
+
+
+  /**
+   * 全申込状況を取得
+   */
+  @Operation(summary = "全申込状況取得", description = "全コースの申込状況を取得します。")
+  @GetMapping("/application-statuses")
+  public List<ApplicationStatus> getAllApplicationStatuses() {
+    return service.getAllApplicationStatuses();
+  }
+
+  /**
+   * コースIDで申込状況を取得
+   */
+  @Operation(summary = "コースID申込状況取得", description = "指定したコースIDの申込状況を取得します。")
+  @GetMapping("/application-statuses/{courseId}")
+  public ApplicationStatus getApplicationStatusByCourseId(@PathVariable int courseId) {
+    return service.getApplicationStatusByCourseId(courseId);
+}
 }
